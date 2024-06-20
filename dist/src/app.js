@@ -1,0 +1,22 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+var _a;
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const user_1 = require("./routes/user");
+const status404_1 = require("./middlewares/status404");
+const cors_1 = require("./middlewares/cors");
+const publication_1 = require("./routes/publication");
+const errorHandler_js_1 = require("./middlewares/errorHandler.js");
+const config_json_1 = __importDefault(require("../config.json"));
+const app = (0, express_1.default)();
+const PORT = (_a = config_json_1.default.development.server.port) !== null && _a !== void 0 ? _a : 3000;
+app.use(express_1.default.json());
+app.use((0, cors_1.corsMiddleware)());
+app.use('/users', user_1.userRouter);
+app.use('/publications', publication_1.publicacionRouter);
+app.use((0, status404_1.status404)());
+app.use(errorHandler_js_1.errorHandler);
+app.listen(PORT, () => console.log(`App escuchando en http://localhost:${PORT}`));

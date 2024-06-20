@@ -1,0 +1,21 @@
+{
+    "development": {
+        "db": {
+            "host": "localhost",
+            "user": "root",
+            "password": "mysqladmin",
+            "database": "db_rsic_echoes"
+        },
+        "server": {
+            "port": 1234
+        }
+    },
+    "production": {
+        "db": {
+            "host": "prod-db-server",
+            "user": "prod_user",
+            "password": "prod_pass",
+            "database": "RED_SOCIAL"
+        }
+    }
+}
