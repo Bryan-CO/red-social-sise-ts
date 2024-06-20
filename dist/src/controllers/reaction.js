@@ -5,7 +5,7 @@ const reaction_1 = require("../models/mysql/reaction");
 const reaction_2 = require("../schemas/reaction");
 const Response_1 = require("../utils/Response");
 class ReactionController {
-    // // GET ALL
+    // GET ALL
     static async getAllById(req, res, next) {
         try {
             const { id } = req.params;

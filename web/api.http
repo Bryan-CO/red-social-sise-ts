@@ -1,0 +1,111 @@
+### Obtener todos los usuarios
+GET http://localhost:1234/users
+
+### Obtener usuario por ID
+GET http://localhost:1234/users/b126cb40-2e39-11ef-8238-50ebf6283cbf
+
+### Crear un usuario
+POST http://localhost:1234/users
+Content-Type: application/json
+
+{
+    "alias": "lcabello123",
+    "nombre": "Luis Bryan",
+    "apellido": "Cabello Ortiz",
+    "email": "lcasd@gmaiaal.com",
+    "contraseña": "12345",
+    "rutaAvatar": "http://avatars/arroz.jpg"
+}
+
+### Actualizar un usuario
+PATCH http://localhost:1234/users/11483a6d-2eb0-11ef-95a9-50ebf6283cbf
+Content-Type: application/json
+
+{
+    "email": "jejeje@gmail.com"
+}
+
+### Borrar usuario de forma lógica
+DELETE http://localhost:1234/users/11483a6d-2eb0-11ef-95a9-50ebf6283cbf
+
+
+
+###############################################################################
+### PUBLICACIONES
+
+### Listar todas las publicaciones
+GET http://localhost:1234/publications
+
+### Obtener publicación por ID
+GET http://localhost:1234/publications/15
+
+### Crear una publicación
+POST http://localhost:1234/publications
+Content-Type: application/json
+
+{
+    "uuid_usuario": "b126cb40-2e39-11ef-8238-50ebf6283cbf",
+    "contenido": "OLAAAAAA"
+}
+
+### Actualizar una publicación
+PATCH http://localhost:1234/publications/15
+Content-Type: application/json
+
+{
+    "contenido": "Saluden uu"
+}
+
+
+### Borrar una publicación
+DELETE http://localhost:1234/publications/15
+
+
+
+
+
+###############################################################################
+### COMENTARIOS AYUDA
+
+### Listar los comentarios de una publicacion
+GET http://localhost:1234/publications/2/comments
+
+
+### Crear un comentario
+POST http://localhost:1234/publications/2/comments
+Content-Type: application/json
+
+{
+    "uuid_usuario": "b126cb40-2e39-11ef-8238-50ebf6283cbf",
+    "contenido": "Que bien uwu"
+}
+
+### Actualizar un comentario
+PATCH http://localhost:1234/publications/1/comments/11
+Content-Type: application/json
+
+{
+    "contenido": "que mal :("
+}
+
+### Borrar un comentario
+DELETE http://localhost:1234/publications/1/comments/12
+
+
+#############################################################
+### REACCIONES
+
+### Obtener todas las reacciones de una publicación
+GET http://localhost:1234/publications/1/reactions
+
+### Obtener reaccion por publicacion y tipo
+GET http://localhost:1234/publications/1/reactions/2
+
+### Añadir una nueva reaccion
+POST http://localhost:1234/publications/1/reactions
+Content-Type: application/json
+
+{
+    "user_uuid": "b126cb40-2e39-11ef-8238-50ebf6283cbf",
+    "reaction_id": 5
+}
